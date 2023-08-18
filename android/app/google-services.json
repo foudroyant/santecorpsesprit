@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "128983869231",
+    "project_id": "santecorpsesprit-cdd97",
+    "storage_bucket": "santecorpsesprit-cdd97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128983869231:android:a9b479095908b5969ba3da",
+        "android_client_info": {
+          "package_name": "com.bambyno.santecorps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128983869231-gnn09hdf6n2vs4fdqpm5eko11bn2osod.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bambyno.santecorps",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "128983869231-ev4sj76udmv9a9o93ev639t0cohbv961.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-OUxFG741qq0kzduEs1FVCP4X0SGkmdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128983869231-ev4sj76udmv9a9o93ev639t0cohbv961.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "128983869231-atjnu6ukd1iiqnet0s3tfueq7rek7k8o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bambyno.santecorps"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
