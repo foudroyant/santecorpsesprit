@@ -67,13 +67,17 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                'SANTE CORPS & ESPRIT',
+                FFLocalizations.of(context).getText(
+                  'edzzxv8s' /* SANTE CORPS & ESPRIT */,
+                ),
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Roboto',
                     ),
               ),
               Text(
-                '<<Toutes les clés de votre bien être, et de votre santé.>>',
+                FFLocalizations.of(context).getText(
+                  'cci4gdvg' /* <<Toutes les clés de votre bie... */,
+                ),
                 style: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Readex Pro',
                       fontSize: 9.0,
@@ -102,7 +106,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: Text(
-                          'Découvrez dans votre Appli catalogue, l’essentiel des livres de bien-être, de santé, du succès et du bonheur.',
+                          FFLocalizations.of(context).getText(
+                            'gq82sege' /* Découvrez dans votre Appli cat... */,
+                          ),
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).titleLarge.override(
@@ -122,7 +128,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Disponible dans',
+                                  FFLocalizations.of(context).getText(
+                                    'm5dlkhlx' /* Disponible dans */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -142,7 +150,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Disponible dans',
+                                  FFLocalizations.of(context).getText(
+                                    '46tl5uxd' /* Disponible dans */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -175,12 +185,24 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                 controller: _model.dropDownValueController ??=
                                     FormFieldController<String>(null),
                                 options: [
-                                  'Français',
-                                  'Anglais',
-                                  'Espagnol',
-                                  'Portugais',
-                                  'Allemand ',
-                                  'Italien'
+                                  FFLocalizations.of(context).getText(
+                                    'x79bqokk' /* Français */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'xc901dxj' /* Anglais */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'vdzy742i' /* Espagnol */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'et9h923d' /* Portugais */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'dyva8a8s' /* Allemand  */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'uoi6je84' /* Italien */,
+                                  )
                                 ],
                                 onChanged: (val) =>
                                     setState(() => _model.dropDownValue = val),
@@ -188,7 +210,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                 height: 50.0,
                                 textStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText: 'Choisir la langue',
+                                hintText: FFLocalizations.of(context).getText(
+                                  's2nrj7yn' /* Choisir la langue */,
+                                ),
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
                                   color: FlutterFlowTheme.of(context)
@@ -212,7 +236,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                 onPressed: () {
                                   print('Button pressed ...');
                                 },
-                                text: 'Livres de l\'auteur',
+                                text: FFLocalizations.of(context).getText(
+                                  '940zt9ui' /* Livres de l'auteur */,
+                                ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 40.0,
@@ -239,7 +265,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                 onPressed: () {
                                   print('Button pressed ...');
                                 },
-                                text: 'Nos coups de coeur',
+                                text: FFLocalizations.of(context).getText(
+                                  '9zg32tkz' /* Nos coups de coeur */,
+                                ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 40.0,
@@ -282,7 +310,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'http://www.santecorpsetesprit.com',
+                    text: FFLocalizations.of(context).getText(
+                      'pv5y7u2y' /* http://www.santecorpsetesprit.... */,
+                    ),
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:

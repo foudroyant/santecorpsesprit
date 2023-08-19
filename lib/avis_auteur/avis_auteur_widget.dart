@@ -62,7 +62,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              'Avis de l\'auteur',
+              FFLocalizations.of(context).getText(
+                'ikidblgx' /* Avis de l'auteur */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleSmall,
             ),
@@ -83,7 +85,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Text(
-                    'Chère lectrice, Cher lecteur,',
+                    FFLocalizations.of(context).getText(
+                      'iwol7qrk' /* Chère lectrice, Cher lecteur, */,
+                    ),
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Outfit',
                           color: Color(0xFF29154A),
@@ -94,7 +98,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: Text(
-                    'Le catalogue Santé corps & esprit appartient au web site-blog www.santecorpsetesprit.com, qui s’est fixé pour objectif de vous faire découvrir des livres incontournables de bien-être et de santé globale, ainsi que ses coups de cœur.',
+                    FFLocalizations.of(context).getText(
+                      '0lm5iudu' /* Le catalogue Santé corps & esp... */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
@@ -105,7 +111,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: Text(
-                    'Comme vous le savez, le bien-être et la santé sont les fondements de l’épanouissement personnel et du bonheur. C’est pourquoi, vous allez dénicher dans chaque livre présenté dans les pages suivantes, des conseils objectifs ; faciles à comprendre et à mettre en pratique. Tout est écrit dans un langage clair, facile à lire.',
+                    FFLocalizations.of(context).getText(
+                      'y2u3cbor' /* Comme vous le savez, le bien-ê... */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
@@ -116,7 +124,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: Text(
-                    'Par ailleurs, pour découvrir les mises à jour de nos nouveautés, cliquez sur le lien www.santecorpsetesprit.com sur la couverture ou sur la dernière page du catalogue, qui vous dirigera en toute sécurité vers notre site.',
+                    FFLocalizations.of(context).getText(
+                      'u30sowse' /* Par ailleurs, pour découvrir l... */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
@@ -127,7 +137,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: Text(
-                    'Nous espérons humblement accomplir notre devoir de vulgarisation, de la connaissance précieuse aux humains, et nous serions très heureux si elle contribue à procurer le bienêtre, la santé, le succès et le bonheur à l’humanité souffrante. Surtout, n’oubliez pas de partager les pages ou le catalogue dans vos réseaux sociaux. Afin de nous aider à diffuser largement ces informations. Par avance, un grand merci !',
+                    FFLocalizations.of(context).getText(
+                      'zjz61puq' /* Nous espérons humblement accom... */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
@@ -138,7 +150,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: Text(
-                    'Nous vous souhaitons de tout cœur, bien-être, santé, succès et bonheur.',
+                    FFLocalizations.of(context).getText(
+                      'f7g5c8w3' /* Nous vous souhaitons de tout c... */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
@@ -149,7 +163,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: Text(
-                    'Avec notre cordial dévouement.',
+                    FFLocalizations.of(context).getText(
+                      'iv4ncxpd' /* Avec notre cordial dévouement. */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
@@ -163,11 +179,15 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'L’équipe',
+                      FFLocalizations.of(context).getText(
+                        'j2dhh8q9' /* L’équipe */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                     Text(
-                      'Santecorpsetesprit.com',
+                      FFLocalizations.of(context).getText(
+                        'tpm0x6ui' /* Santecorpsetesprit.com */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ],
@@ -187,7 +207,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                         },
                       );
                     },
-                    text: 'Commencer',
+                    text: FFLocalizations.of(context).getText(
+                      '76x4gkbj' /* Commencer */,
+                    ),
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:

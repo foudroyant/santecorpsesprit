@@ -232,7 +232,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              'Description',
+              FFLocalizations.of(context).getText(
+                'ywrgehbx' /* Description */,
+              ),
               style: FlutterFlowTheme.of(context).titleSmall,
             ),
             centerTitle: true,
@@ -450,7 +452,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
                 child: Text(
-                  'Disponible sur :',
+                  FFLocalizations.of(context).getText(
+                    'jkwwh1gr' /* Disponible sur : */,
+                  ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Readex Pro',
                         fontWeight: FontWeight.bold,
@@ -466,7 +470,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       onPressed: () async {
                         await launchURL(widget.livre!.liens[0]);
                       },
-                      text: 'www.amazon.fr',
+                      text: FFLocalizations.of(context).getText(
+                        '8wf81krl' /* www.amazon.fr */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,
@@ -492,7 +498,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       onPressed: () async {
                         await launchURL(widget.livre!.liens[1]);
                       },
-                      text: ' www.chapitre.com ',
+                      text: FFLocalizations.of(context).getText(
+                        '8n0lcd0a' /*  www.chapitre.com  */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,
@@ -518,7 +526,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       onPressed: () async {
                         await launchURL(widget.livre!.liens[2]);
                       },
-                      text: ' www.leslibrairies.fr',
+                      text: FFLocalizations.of(context).getText(
+                        '242wzucc' /*  www.leslibrairies.fr */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,
@@ -544,7 +554,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       onPressed: () async {
                         await launchURL(widget.livre!.liens[3]);
                       },
-                      text: ' www.placedeslibraires.fr',
+                      text: FFLocalizations.of(context).getText(
+                        '3wjg4wm3' /*  www.placedeslibraires.fr */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,
@@ -570,7 +582,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       onPressed: () async {
                         await launchURL(widget.livre!.liens[4]);
                       },
-                      text: 'www.librairiesdelest.fr',
+                      text: FFLocalizations.of(context).getText(
+                        '5c4t8fci' /* www.librairiesdelest.fr */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,
@@ -596,7 +610,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       onPressed: () async {
                         await launchURL(widget.livre!.liens[5]);
                       },
-                      text: 'www.parislibrairies.fr ',
+                      text: FFLocalizations.of(context).getText(
+                        '8290920t' /* www.parislibrairies.fr  */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,
@@ -622,7 +638,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       onPressed: () async {
                         await launchURL(widget.livre!.liens[6]);
                       },
-                      text: 'www. librairiesindependantes.com',
+                      text: FFLocalizations.of(context).getText(
+                        '4160fa3p' /* www. librairiesindependantes.c... */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,

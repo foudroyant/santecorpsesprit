@@ -64,7 +64,9 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              'Edition spéciale riche en découvertes ',
+              FFLocalizations.of(context).getText(
+                '1cit6rmz' /* Edition spéciale riche en déco... */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleSmall,
             ),
