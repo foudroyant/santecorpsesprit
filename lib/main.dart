@@ -16,7 +16,6 @@ void main() async {
   await initFirebase();
 
   await FlutterFlowTheme.initialize();
-  await FFLocalizations.initialize();
 
   runApp(MyApp());
 }
@@ -31,7 +30,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale = FFLocalizations.getStoredLocale();
+  Locale? _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
   late AppStateNotifier _appStateNotifier;
@@ -51,7 +50,6 @@ class _MyAppState extends State<MyApp> {
 
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
-    FFLocalizations.storeLocale(language);
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {
@@ -72,10 +70,6 @@ class _MyAppState extends State<MyApp> {
       locale: _locale,
       supportedLocales: const [
         Locale('fr'),
-        Locale('en'),
-        Locale('es'),
-        Locale('pt'),
-        Locale('de'),
       ],
       theme: ThemeData(
         brightness: Brightness.light,

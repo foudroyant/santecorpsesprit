@@ -63,9 +63,7 @@ class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              FFLocalizations.of(context).getText(
-                '4bhz7cu7' /* Livres du docteur */,
-              ),
+              'Livres du docteur',
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleSmall,
             ),

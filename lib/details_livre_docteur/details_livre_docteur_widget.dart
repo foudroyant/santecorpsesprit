@@ -153,9 +153,7 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              FFLocalizations.of(context).getText(
-                'ig9a7lqi' /* Description */,
-              ),
+              'Description',
               style: FlutterFlowTheme.of(context).titleSmall,
             ),
             centerTitle: true,
@@ -253,9 +251,7 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                           onPressed: () async {
                             await launchURL('https://www.santeglobale.world/');
                           },
-                          text: FFLocalizations.of(context).getText(
-                            '2r4qt0lj' /* Disponible sur : www.santeglob... */,
-                          ),
+                          text: 'Disponible sur : www.santeglobale.world',
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,

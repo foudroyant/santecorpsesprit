@@ -16,14 +16,6 @@
 	<string>SanteCorps</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>fr</string>
-		<string>en</string>
-		<string>es</string>
-		<string>pt</string>
-		<string>de</string>
-	</array>
 
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>

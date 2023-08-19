@@ -146,9 +146,7 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              FFLocalizations.of(context).getText(
-                'xptt41kk' /* Nos coups de coeur */,
-              ),
+              'Nos coups de coeur',
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleSmall,
             ),
@@ -200,9 +198,7 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 20.0, 0.0, 0.0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            't2w076rs' /* A propos du docteur Christian ... */,
-                          ),
+                          'A propos du docteur Christian Tal Schaller',
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
@@ -216,9 +212,7 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 16.0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            '6ijn9qlh' /* Médecin Suisse, naturopathe, h... */,
-                          ),
+                          'Médecin Suisse, naturopathe, homéopathe, acuponcteur, ostéopathe, chamane et psychothérapeute. C’est un véritable expert de la médecine alternative, pionnier de la santé, penseur avant-gardiste, conférencier et écrivain, il a publié de nombreux ouvrages de référence sur les thèmes de la spiritualité et la santé holistique. Il nous invite à sortir de l’hypnose collective pour vivre dans la joie et la conscience.',
                           style: FlutterFlowTheme.of(context).labelMedium,
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation2']!),
@@ -244,9 +238,7 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                         onPressed: () async {
                           context.pushNamed('livresDocteur');
                         },
-                        text: FFLocalizations.of(context).getText(
-                          'blwajwse' /* Commencer */,
-                        ),
+                        text: 'Commencer',
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 50.0,

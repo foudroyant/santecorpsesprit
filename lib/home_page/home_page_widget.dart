@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -65,17 +64,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                FFLocalizations.of(context).getText(
-                  'nuj6mhwr' /* SANTE CORPS & ESPRIT */,
-                ),
+                'SANTE CORPS & ESPRIT',
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Roboto',
                     ),
               ),
               Text(
-                FFLocalizations.of(context).getText(
-                  'dehut86f' /* <<Toutes les clés de votre bie... */,
-                ),
+                '<<Toutes les clés de votre bien être, et de votre santé.>>',
                 style: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Readex Pro',
                       fontSize: 9.0,
@@ -119,9 +114,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   1.0, 1.0, 1.0, 1.0),
                               child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'f8gwxfm0' /* Découvrez dans votre Appli cat... */,
-                                ),
+                                'Découvrez dans votre Appli catalogue, l’essentiel des livres de bien-être, de santé, du succès et du bonheur.',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
@@ -146,9 +139,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  FFLocalizations.of(context).getText(
-                                    '3qpje9sk' /* Disponible dans */,
-                                  ),
+                                  'Disponible dans',
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -172,9 +163,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  FFLocalizations.of(context).getText(
-                                    '1autimd0' /* Disponible dans */,
-                                  ),
+                                  'Disponible dans',
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -207,35 +196,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              FlutterFlowLanguageSelector(
-                                width: double.infinity,
-                                backgroundColor: Colors.white,
-                                borderColor: Colors.transparent,
-                                dropdownIconColor: Colors.white,
-                                borderRadius: 8.0,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                    ),
-                                hideFlags: false,
-                                flagSize: 24.0,
-                                flagTextGap: 8.0,
-                                currentLanguage:
-                                    FFLocalizations.of(context).languageCode,
-                                languages: FFLocalizations.languages(),
-                                onChanged: (lang) =>
-                                    setAppLanguage(context, lang),
-                              ),
                               FFButtonWidget(
                                 onPressed: () async {
                                   context.pushNamed('avisAuteur');
                                 },
-                                text: FFLocalizations.of(context).getText(
-                                  'c6cty0a7' /* Livres de l'auteur */,
-                                ),
+                                text: 'Livres de l\'auteur',
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 40.0,
@@ -263,9 +228,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 onPressed: () async {
                                   context.pushNamed('avisPourDocteur');
                                 },
-                                text: FFLocalizations.of(context).getText(
-                                  '1a9b3u3z' /* Nos coups de coeur */,
-                                ),
+                                text: 'Nos coups de coeur',
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 40.0,
@@ -309,9 +272,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     onPressed: () async {
                       await launchURL('https://www.santecorpsetesprit.com/');
                     },
-                    text: FFLocalizations.of(context).getText(
-                      'bbqh2cae' /* https://www.santecorpsetesprit... */,
-                    ),
+                    text: 'https://www.santecorpsetesprit.com',
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:
