@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -172,33 +173,100 @@ class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          listViewLivresDocteurRecord.titre,
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                fontSize: 22.0,
-                                              ),
+                                        FutureBuilder<ApiCallResponse>(
+                                          future: MesToolsCall.call(
+                                            text: listViewLivresDocteurRecord
+                                                .titre,
+                                            from: 'fr',
+                                            to: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(
+                                                      Color(0xFF120D40),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                            final textMesToolsResponse =
+                                                snapshot.data!;
+                                            return Text(
+                                              MesToolsCall.translated(
+                                                textMesToolsResponse.jsonBody,
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        fontSize: 22.0,
+                                                      ),
+                                            );
+                                          },
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 8.0, 0.0),
-                                          child: AutoSizeText(
-                                            listViewLivresDocteurRecord
-                                                .sousTitre
-                                                .maybeHandleOverflow(
-                                              maxChars: 70,
-                                              replacement: '…',
+                                          child: FutureBuilder<ApiCallResponse>(
+                                            future: MesToolsCall.call(
+                                              text: listViewLivresDocteurRecord
+                                                  .sousTitre,
+                                              from: 'fr',
+                                              to: FFLocalizations.of(context)
+                                                  .languageCode,
                                             ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 12.0,
-                                                ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        Color(0xFF120D40),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              final textMesToolsResponse =
+                                                  snapshot.data!;
+                                              return AutoSizeText(
+                                                MesToolsCall.translated(
+                                                  textMesToolsResponse.jsonBody,
+                                                )
+                                                    .toString()
+                                                    .maybeHandleOverflow(
+                                                      maxChars: 70,
+                                                      replacement: '…',
+                                                    ),
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 12.0,
+                                                        ),
+                                              );
+                                            },
                                           ),
                                         ),
                                       ],

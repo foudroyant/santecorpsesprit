@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -277,14 +278,42 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                   animationsMap['containerOnPageLoadAnimation']!),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 0.0, 0.0),
-                child: Text(
-                  widget.livre!.titre,
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
+                child: FutureBuilder<ApiCallResponse>(
+                  future: MesToolsCall.call(
+                    text: widget.livre?.titre,
+                    from: 'fr',
+                    to: FFLocalizations.of(context).languageCode,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Color(0xFF120D40),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    final textMesToolsResponse = snapshot.data!;
+                    return Text(
+                      MesToolsCall.translated(
+                        textMesToolsResponse.jsonBody,
+                      ).toString(),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Outfit',
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation1']!);
+                  },
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
@@ -311,11 +340,37 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 5.0),
-                          child: Text(
-                            descriptionsItem,
-                            style: FlutterFlowTheme.of(context).labelMedium,
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation3']!),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: MesToolsCall.call(
+                              text: descriptionsItem,
+                              from: 'fr',
+                              to: FFLocalizations.of(context).languageCode,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        Color(0xFF120D40),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              final textMesToolsResponse = snapshot.data!;
+                              return Text(
+                                MesToolsCall.translated(
+                                  textMesToolsResponse.jsonBody,
+                                ).toString(),
+                                style: FlutterFlowTheme.of(context).labelMedium,
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation3']!);
+                            },
+                          ),
                         );
                       }),
                     );
@@ -343,10 +398,38 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  exemplesItem,
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
+                                child: FutureBuilder<ApiCallResponse>(
+                                  future: MesToolsCall.call(
+                                    text: exemplesItem,
+                                    from: 'fr',
+                                    to: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              Color(0xFF120D40),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    final textMesToolsResponse = snapshot.data!;
+                                    return Text(
+                                      MesToolsCall.translated(
+                                        textMesToolsResponse.jsonBody,
+                                      ).toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                    );
+                                  },
                                 ),
                               ),
                             ),
@@ -386,16 +469,47 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 5.0),
-                                      child: Text(
-                                        avisItem.commentaire,
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontStyle: FontStyle.italic,
-                                            ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation4']!),
+                                      child: FutureBuilder<ApiCallResponse>(
+                                        future: MesToolsCall.call(
+                                          text: avisItem.commentaire,
+                                          from: 'fr',
+                                          to: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    Color(0xFF120D40),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          final textMesToolsResponse =
+                                              snapshot.data!;
+                                          return Text(
+                                            MesToolsCall.translated(
+                                              textMesToolsResponse.jsonBody,
+                                            ).toString(),
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontStyle: FontStyle.italic,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation4']!);
+                                        },
+                                      ),
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -439,11 +553,37 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                       children:
                           List.generate(piedDePage.length, (piedDePageIndex) {
                         final piedDePageItem = piedDePage[piedDePageIndex];
-                        return Text(
-                          piedDePageItem,
-                          style: FlutterFlowTheme.of(context).labelMedium,
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation6']!);
+                        return FutureBuilder<ApiCallResponse>(
+                          future: MesToolsCall.call(
+                            text: piedDePageItem,
+                            from: 'fr',
+                            to: FFLocalizations.of(context).languageCode,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      Color(0xFF120D40),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final textMesToolsResponse = snapshot.data!;
+                            return Text(
+                              MesToolsCall.translated(
+                                textMesToolsResponse.jsonBody,
+                              ).toString(),
+                              style: FlutterFlowTheme.of(context).labelMedium,
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation6']!);
+                          },
+                        );
                       }),
                     );
                   },
@@ -451,15 +591,43 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    'jkwwh1gr' /* Disponible sur : */,
+                child: FutureBuilder<ApiCallResponse>(
+                  future: MesToolsCall.call(
+                    text: 'Disponible sur :',
+                    from: 'fr',
+                    to: FFLocalizations.of(context).languageCode,
                   ),
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontWeight: FontWeight.bold,
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Color(0xFF120D40),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    final textMesToolsResponse = snapshot.data!;
+                    return Text(
+                      valueOrDefault<String>(
+                        MesToolsCall.translated(
+                          textMesToolsResponse.jsonBody,
+                        ).toString(),
+                        'Disponible sur :',
                       ),
-                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation7']!),
+                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                            fontFamily: 'Readex Pro',
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation7']!);
+                  },
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),

@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -178,14 +179,47 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          listViewLivresAuteurRecord.titre,
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                fontSize: 22.0,
-                                              ),
+                                        FutureBuilder<ApiCallResponse>(
+                                          future: MesToolsCall.call(
+                                            text: listViewLivresAuteurRecord
+                                                .titre,
+                                            from: 'fr',
+                                            to: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(
+                                                      Color(0xFF120D40),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                            final textMesToolsResponse =
+                                                snapshot.data!;
+                                            return Text(
+                                              MesToolsCall.translated(
+                                                textMesToolsResponse.jsonBody,
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        fontSize: 22.0,
+                                                      ),
+                                            );
+                                          },
                                         ),
                                         Padding(
                                           padding:

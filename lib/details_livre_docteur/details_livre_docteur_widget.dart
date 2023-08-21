@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -198,24 +199,79 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                   animationsMap['containerOnPageLoadAnimation']!),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 0.0, 0.0),
-                child: Text(
-                  widget.livre!.titre,
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
+                child: FutureBuilder<ApiCallResponse>(
+                  future: MesToolsCall.call(
+                    text: widget.livre?.titre,
+                    from: 'fr',
+                    to: FFLocalizations.of(context).languageCode,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Color(0xFF120D40),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    final textMesToolsResponse = snapshot.data!;
+                    return Text(
+                      MesToolsCall.translated(
+                        textMesToolsResponse.jsonBody,
+                      ).toString(),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Outfit',
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation1']!);
+                  },
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
-                child: Text(
-                  widget.livre!.sousTitre,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).primary,
-                      ),
-                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
+                child: FutureBuilder<ApiCallResponse>(
+                  future: MesToolsCall.call(
+                    text: widget.livre?.sousTitre,
+                    from: 'fr',
+                    to: FFLocalizations.of(context).languageCode,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Color(0xFF120D40),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    final textMesToolsResponse = snapshot.data!;
+                    return Text(
+                      MesToolsCall.translated(
+                        textMesToolsResponse.jsonBody,
+                      ).toString(),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).primary,
+                          ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation2']!);
+                  },
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
@@ -229,11 +285,37 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 5.0),
-                          child: Text(
-                            detailsItem,
-                            style: FlutterFlowTheme.of(context).labelMedium,
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation3']!),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: MesToolsCall.call(
+                              text: detailsItem,
+                              from: 'fr',
+                              to: FFLocalizations.of(context).languageCode,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        Color(0xFF120D40),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              final textMesToolsResponse = snapshot.data!;
+                              return Text(
+                                MesToolsCall.translated(
+                                  textMesToolsResponse.jsonBody,
+                                ).toString(),
+                                style: FlutterFlowTheme.of(context).labelMedium,
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation3']!);
+                            },
+                          ),
                         );
                       }),
                     );

@@ -316,13 +316,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Descripción',
       'pt': 'Descrição',
     },
-    'jkwwh1gr': {
-      'fr': 'Disponible sur :',
-      'de': 'Verfügbar auf :',
-      'en': 'Available on :',
-      'es': 'Disponible en :',
-      'pt': 'Disponível em :',
-    },
     '8wf81krl': {
       'fr': 'www.amazon.fr',
       'de': 'www.amazon.fr',
