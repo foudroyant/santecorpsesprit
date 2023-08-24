@@ -233,7 +233,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'zjz61puq': {
       'fr':
-          'Nous espérons humblement accomplir notre devoir de vulgarisation, de la connaissance précieuse aux humains, et nous serions très heureux si elle contribue à procurer le bienêtre, la santé, le succès et le bonheur à l’humanité souffrante. Surtout, n’oubliez pas de partager les pages ou le catalogue dans vos réseaux sociaux. Afin de nous aider à diffuser largement ces informations. Par avance, un grand merci !',
+          'Nous espérons humblement accomplir notre devoir de vulgarisation, de la connaissance précieuse aux humains, et nous serions très heureux si elle contribue à procurer le bien-être, la santé, le succès et le bonheur à l’humanité souffrante. Surtout, n’oubliez pas de partager les pages ou le catalogue dans vos réseaux sociaux. Afin de nous aider à diffuser largement ces informations. Par avance, un grand merci !',
       'de':
           'Wir hoffen demütig, dass wir unserer Pflicht zur Popularisierung des für den Menschen wertvollen Wissens gerecht werden und würden uns sehr freuen, wenn es dazu beitragen würde, der leidenden Menschheit Wohlbefinden, Gesundheit, Erfolg und Glück zu bieten. Vergessen Sie vor allem nicht, die Seiten oder den Katalog in Ihren sozialen Netzwerken zu teilen. Um uns dabei zu helfen, diese Informationen weithin zu verbreiten. Im Voraus vielen Dank!',
       'en':
