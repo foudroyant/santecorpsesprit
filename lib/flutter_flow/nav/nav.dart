@@ -90,11 +90,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'HomePageCopy',
-          path: '/homePageCopy',
-          builder: (context, params) => HomePageCopyWidget(),
-        ),
-        FFRoute(
           name: 'avisPourDocteur',
           path: '/avisPourDocteur',
           builder: (context, params) => AvisPourDocteurWidget(),

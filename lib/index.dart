@@ -3,7 +3,6 @@ export '/home_page/home_page_widget.dart' show HomePageWidget;
 export '/avis_auteur/avis_auteur_widget.dart' show AvisAuteurWidget;
 export '/livres_auteur/livres_auteur_widget.dart' show LivresAuteurWidget;
 export '/details_livre/details_livre_widget.dart' show DetailsLivreWidget;
-export '/home_page_copy/home_page_copy_widget.dart' show HomePageCopyWidget;
 export '/avis_pour_docteur/avis_pour_docteur_widget.dart'
     show AvisPourDocteurWidget;
 export '/livres_docteur/livres_docteur_widget.dart' show LivresDocteurWidget;

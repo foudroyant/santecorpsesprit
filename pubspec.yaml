@@ -30,7 +30,6 @@ dependencies:
   cloud_firestore: 4.8.0
   cloud_firestore_platform_interface: 5.15.0
   cloud_firestore_web: 3.6.0
-  dropdown_button2: 2.0.0
   emoji_flag_converter: 1.1.0
   equatable: 2.0.5
   firebase_core: 2.13.1
