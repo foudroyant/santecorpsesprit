@@ -90,7 +90,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Outfit',
-                          color: Color(0xFF29154A),
+                          color: Colors.white,
                           fontSize: 22.0,
                         ),
                   ),

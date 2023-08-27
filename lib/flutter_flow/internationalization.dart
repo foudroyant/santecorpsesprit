@@ -209,7 +209,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'y2u3cbor': {
       'fr':
-          'Comme vous le savez, le bien-être et la santé sont les fondements de l’épanouissement personnel et du bonheur. C’est pourquoi, vous allez dénicher dans chaque livre présenté dans les pages suivantes, des conseils objectifs ; faciles à comprendre et à mettre en pratique. Tout est écrit dans un langage clair, facile à lire.',
+          'Comme vous le savez, le bien-être et la santé sont les fondements de l’épanouissement personnel et du bonheur. C’est pourquoi, vous allez dénicher dans chaque livre présenté dans les pages suivantes, des conseils objectifs ; faciles à comprendre et à mettre en pratique. Tout est écrit dans un langage clair, facile à lire.',
       'de':
           'Wie Sie wissen, sind Wohlbefinden und Gesundheit die Grundlagen für persönliche Erfüllung und Glück. Aus diesem Grund finden Sie in jedem Buch, das auf den folgenden Seiten vorgestellt wird, objektive Ratschläge; leicht zu verstehen und in die Praxis umzusetzen. Alles ist in einer klaren, leicht lesbaren Sprache geschrieben.',
       'en':
@@ -233,7 +233,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'zjz61puq': {
       'fr':
-          'Nous espérons humblement accomplir notre devoir de vulgarisation, de la connaissance précieuse aux humains, et nous serions très heureux si elle contribue à procurer le bien-être, la santé, le succès et le bonheur à l’humanité souffrante. Surtout, n’oubliez pas de partager les pages ou le catalogue dans vos réseaux sociaux. Afin de nous aider à diffuser largement ces informations. Par avance, un grand merci !',
+          'Nous espérons humblement accomplir notre devoir de vulgarisation, de la connaissance précieuse aux humains, et nous serions très heureux si elle contribue à procurer le bien-être, la santé, le succès et le bonheur à l’humanité souffrante. Surtout, n’oubliez pas de partager les pages ou le catalogue dans vos réseaux sociaux. Afin de nous aider à diffuser largement ces informations. Par avance, un grand merci !',
       'de':
           'Wir hoffen demütig, dass wir unserer Pflicht zur Popularisierung des für den Menschen wertvollen Wissens gerecht werden und würden uns sehr freuen, wenn es dazu beitragen würde, der leidenden Menschheit Wohlbefinden, Gesundheit, Erfolg und Glück zu bieten. Vergessen Sie vor allem nicht, die Seiten oder den Katalog in Ihren sozialen Netzwerken zu teilen. Um uns dabei zu helfen, diese Informationen weithin zu verbreiten. Im Voraus vielen Dank!',
       'en':
