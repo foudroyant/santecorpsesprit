@@ -1,4 +1,4 @@
-# SanteCorps
+# SanteCorpsEsprit
 
 A new Flutter project.
 

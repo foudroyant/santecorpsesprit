@@ -10,10 +10,10 @@ import 'avis_auteur_model.dart';
 export 'avis_auteur_model.dart';
 
 class AvisAuteurWidget extends StatefulWidget {
-  const AvisAuteurWidget({Key? key}) : super(key: key);
+  const AvisAuteurWidget({super.key});
 
   @override
-  _AvisAuteurWidgetState createState() => _AvisAuteurWidgetState();
+  State<AvisAuteurWidget> createState() => _AvisAuteurWidgetState();
 }
 
 class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
@@ -39,7 +39,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -66,7 +68,10 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                 'ikidblgx' /* Avis de l'auteur */,
               ),
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).titleSmall,
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0.0,
+                  ),
             ),
             centerTitle: true,
             expandedTitleScale: 1.0,
@@ -90,8 +95,9 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Outfit',
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).secondaryText,
                           fontSize: 22.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -104,6 +110,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -117,6 +124,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -130,6 +138,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -143,6 +152,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -156,6 +166,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -169,6 +180,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Poppins',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -182,13 +194,19 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                       FFLocalizations.of(context).getText(
                         'j2dhh8q9' /* L’équipe */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                     Text(
                       FFLocalizations.of(context).getText(
                         'tpm0x6ui' /* Santecorpsetesprit.com */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ],
                 ),
@@ -197,7 +215,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.pushNamed(
-                        'livresAuteur',
+                        'livresAuteur_Old',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
@@ -221,6 +239,7 @@ class _AvisAuteurWidgetState extends State<AvisAuteurWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).warning,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(

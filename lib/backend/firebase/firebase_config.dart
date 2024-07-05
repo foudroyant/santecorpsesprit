@@ -10,7 +10,7 @@ Future initFirebase() async {
             projectId: "santecorpsesprit-cdd97",
             storageBucket: "santecorpsesprit-cdd97.appspot.com",
             messagingSenderId: "128983869231",
-            appId: "1:128983869231:web:d3ded44e5540b46d9ba3da"));
+            appId: "1:128983869231:web:0e45c4a86c5f98c59ba3da"));
   } else {
     await Firebase.initializeApp();
   }

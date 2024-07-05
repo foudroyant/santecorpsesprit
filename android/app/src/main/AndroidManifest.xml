@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bambyno.santecorps"
+    package="com.bambyno.horizonsante"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="santecorps" android:host="santecorps.com" />
+                <data android:scheme="santecorpsesprit" android:host="santecorpsesprit.com" />
             </intent-filter>
 
         </activity>

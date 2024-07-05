@@ -15,3 +15,8 @@ import '/backend/schema/structs/index.dart';
 String? unTest(String? texte) {
   return texte;
 }
+
+String extraireSite(String lien) {
+  var spliter = lien.split(".");
+  return '${spliter[1]}.${spliter[2]}'.split("/")[0];
+}

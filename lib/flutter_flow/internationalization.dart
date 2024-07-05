@@ -295,9 +295,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '1cit6rmz': {
       'fr': 'Edition spéciale riche en découvertes ',
       'de': 'Sonderausgabe voller Entdeckungen',
-      'en': 'Special edition rich in discoveries',
-      'es': 'Edición especial rica en descubrimientos',
-      'pt': 'Edição especial rica em descobertas',
+      'en': 'Special edition full of discoveries',
+      'es': 'Edición especial llena de descubrimientos',
+      'pt': 'Edição especial cheia de descobertas',
     },
     'd4tqdgwo': {
       'fr': 'Home',
@@ -316,54 +316,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Descripción',
       'pt': 'Descrição',
     },
-    '8wf81krl': {
-      'fr': 'www.amazon.fr',
-      'de': 'www.amazon.fr',
-      'en': 'www.amazon.fr',
-      'es': 'www.amazon.fr',
-      'pt': 'www.amazon.fr',
-    },
-    '8n0lcd0a': {
-      'fr': ' www.chapitre.com ',
-      'de': 'www.chapter.com',
-      'en': 'www.chapter.com',
-      'es': 'www.capítulo.com',
-      'pt': 'www.chapter.com',
-    },
-    '242wzucc': {
-      'fr': ' www.leslibrairies.fr',
-      'de': 'www.leslibrairies.fr',
-      'en': 'www.leslibrairies.fr',
-      'es': 'www.leslibrairies.fr',
-      'pt': 'www.leslibrairies.fr',
-    },
-    '3wjg4wm3': {
-      'fr': ' www.placedeslibraires.fr',
-      'de': 'www.placedeslibraires.fr',
-      'en': 'www.placedeslibraires.fr',
-      'es': 'www.placedeslibraires.fr',
-      'pt': 'www.placedeslibraires.fr',
-    },
-    '5c4t8fci': {
-      'fr': 'www.librairiesdelest.fr',
-      'de': 'www.librairiesdelest.fr',
-      'en': 'www.librairiesdelest.fr',
-      'es': 'www.librairiesdelest.fr',
-      'pt': 'www.librairiesdelest.fr',
-    },
-    '8290920t': {
-      'fr': 'www.parislibrairies.fr ',
-      'de': 'www.parislibrairies.fr',
-      'en': 'www.parislibrairies.fr',
-      'es': 'www.parislibrairies.fr',
-      'pt': 'www.parislibrairies.fr',
-    },
-    '4160fa3p': {
-      'fr': 'www. librairiesindependantes.com',
-      'de': 'www. Independentlibraries.com',
-      'en': 'www. independentlibraries.com',
-      'es': 'www. bibliotecasindependientes.com',
-      'pt': 'www. independentlibraries.com',
+    'jkwwh1gr': {
+      'fr': 'Disponible sur :',
+      'de': 'Verfügbar auf :',
+      'en': 'Available on :',
+      'es': 'Disponible en :',
+      'pt': 'Disponível em :',
     },
     '15ymuweb': {
       'fr': 'Home',
@@ -457,6 +415,57 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'pt': 'Lar',
     },
   },
+  // livresDocteur_Old
+  {
+    'a1rn4egl': {
+      'fr': 'Livres du docteur',
+      'de': 'Bücher des Arztes',
+      'en': 'Doctor\'s books',
+      'es': 'libros de medico',
+      'pt': 'livros de doutor',
+    },
+    '7xafvhpz': {
+      'fr': 'Home',
+      'de': 'Heim',
+      'en': 'Home',
+      'es': 'Hogar',
+      'pt': 'Lar',
+    },
+  },
+  // livresAuteur_Old
+  {
+    'ipq7rbtg': {
+      'fr': 'Edition spéciale riche en découvertes ',
+      'de': 'Sonderausgabe voller Entdeckungen',
+      'en': 'Special edition rich in discoveries',
+      'es': 'Edición especial rica en descubrimientos',
+      'pt': 'Edição especial rica em descobertas',
+    },
+    '27q3f2k7': {
+      'fr': 'Home',
+      'de': 'Heim',
+      'en': 'Home',
+      'es': 'Hogar',
+      'pt': 'Lar',
+    },
+  },
+  // detailsLivre_Old
+  {
+    'jl05s8fp': {
+      'fr': 'Description',
+      'de': 'Beschreibung',
+      'en': 'Description',
+      'es': 'Descripción',
+      'pt': 'Descrição',
+    },
+    '5k2k9ewt': {
+      'fr': 'Home',
+      'de': 'Heim',
+      'en': 'Home',
+      'es': 'Hogar',
+      'pt': 'Lar',
+    },
+  },
   // Miscellaneous
   {
     'cjk38p7b': {
@@ -516,6 +525,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'pt': '',
     },
     'nzw1poib': {
+      'fr': '',
+      'de': '',
+      'en': '',
+      'es': '',
+      'pt': '',
+    },
+    '4e2ro4cj': {
+      'fr': '',
+      'de': '',
+      'en': '',
+      'es': '',
+      'pt': '',
+    },
+    'tclkudds': {
       'fr': '',
       'de': '',
       'en': '',

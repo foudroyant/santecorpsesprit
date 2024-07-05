@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 
@@ -82,11 +83,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'detailsLivre',
           path: '/detailsLivre',
-          asyncParams: {
-            'livre': getDoc(['livres_auteur'], LivresAuteurRecord.fromSnapshot),
-          },
           builder: (context, params) => DetailsLivreWidget(
-            livre: params.getParam('livre', ParamType.Document),
+            livre: params.getParam(
+              'livre',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: LivreAuteurStruct.fromSerializableMap,
+            ),
           ),
         ),
         FFRoute(
@@ -107,7 +110,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 getDoc(['livres_docteur'], LivresDocteurRecord.fromSnapshot),
           },
           builder: (context, params) => DetailsLivreDocteurWidget(
-            livre: params.getParam('livre', ParamType.Document),
+            livre: params.getParam(
+              'livre',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'livresDocteur_Old',
+          path: '/livresDocteurOld',
+          builder: (context, params) => LivresDocteurOldWidget(),
+        ),
+        FFRoute(
+          name: 'livresAuteur_Old',
+          path: '/livresAuteurOld',
+          builder: (context, params) => LivresAuteurOldWidget(),
+        ),
+        FFRoute(
+          name: 'detailsLivre_Old',
+          path: '/detailsLivreOld',
+          asyncParams: {
+            'livre': getDoc(['livres_auteur'], LivresAuteurRecord.fromSnapshot),
+          },
+          builder: (context, params) => DetailsLivreOldWidget(
+            livre: params.getParam(
+              'livre',
+              ParamType.Document,
+            ),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -138,7 +167,7 @@ extension _GoRouterStateExtensions on GoRouterState {
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
     ..addAll(pathParameters)
-    ..addAll(queryParameters)
+    ..addAll(uri.queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -157,7 +186,7 @@ class FFParameters {
   // present is the special extra parameter reserved for the transition info.
   bool get isEmpty =>
       state.allParams.isEmpty ||
-      (state.extraMap.length == 1 &&
+      (state.allParams.length == 1 &&
           state.extraMap.containsKey(kTransitionInfoKey));
   bool isAsyncParam(MapEntry<String, dynamic> param) =>
       asyncParams.containsKey(param.key) && param.value is String;
@@ -178,10 +207,11 @@ class FFParameters {
 
   dynamic getParam<T>(
     String paramName,
-    ParamType type, [
+    ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
-  ]) {
+    StructBuilder<T>? structBuilder,
+  }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
     }
@@ -194,8 +224,13 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
+    );
   }
 }
 
@@ -220,6 +255,7 @@ class FFRoute {
         name: name,
         path: path,
         pageBuilder: (context, state) {
+          fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
           final page = ffParams.hasFutures
               ? FutureBuilder(
@@ -235,13 +271,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },
@@ -263,4 +306,34 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+}
+
+class RootPageContext {
+  const RootPageContext(this.isRootPage, [this.errorRoute]);
+  final bool isRootPage;
+  final String? errorRoute;
+
+  static bool isInactiveRootPage(BuildContext context) {
+    final rootPageContext = context.read<RootPageContext?>();
+    final isRootPage = rootPageContext?.isRootPage ?? false;
+    final location = GoRouterState.of(context).uri.toString();
+    return isRootPage &&
+        location != '/' &&
+        location != rootPageContext?.errorRoute;
+  }
+
+  static Widget wrap(Widget child, {String? errorRoute}) => Provider.value(
+        value: RootPageContext(true, errorRoute),
+        child: child,
+      );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

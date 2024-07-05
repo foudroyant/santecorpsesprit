@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>SanteCorps</string>
+	<string>SanteCorpsEsprit</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleLocalizations</key>
@@ -36,7 +36,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.128983869231-atjnu6ukd1iiqnet0s3tfueq7rek7k8o</string>
+                <!--FF_REVERSED_CLIENT_ID-->
                 
             </array>
         </dict>
@@ -45,10 +45,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>santecorps.com</string>
+        <string>santecorpsesprit.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>santecorps</string>
+        <string>santecorpsesprit</string>
         </array>
         </dict>
     </array>

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -13,10 +14,10 @@ import 'avis_pour_docteur_model.dart';
 export 'avis_pour_docteur_model.dart';
 
 class AvisPourDocteurWidget extends StatefulWidget {
-  const AvisPourDocteurWidget({Key? key}) : super(key: key);
+  const AvisPourDocteurWidget({super.key});
 
   @override
-  _AvisPourDocteurWidgetState createState() => _AvisPourDocteurWidgetState();
+  State<AvisPourDocteurWidget> createState() => _AvisPourDocteurWidgetState();
 }
 
 class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
@@ -25,90 +26,92 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, -250.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-10.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 50.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => AvisPourDocteurModel());
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -250.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-10.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -123,7 +126,9 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -150,7 +155,10 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                 'ytkzxwb4' /* Nos coups de coeur */,
               ),
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).titleSmall,
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0.0,
+                  ),
             ),
             centerTitle: true,
             expandedTitleScale: 1.0,
@@ -184,7 +192,10 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                             BoxShadow(
                               blurRadius: 2.0,
                               color: Color(0x17202529),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.only(
@@ -207,6 +218,7 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                               .headlineMedium
                               .override(
                                 fontFamily: 'Outfit',
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
                         ).animateOnPageLoad(
@@ -219,7 +231,11 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                           FFLocalizations.of(context).getText(
                             '3w730pds' /* Médecin Suisse, naturopathe, h... */,
                           ),
-                          style: FlutterFlowTheme.of(context).labelMedium,
+                          style:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation2']!),
                       ),
@@ -259,6 +275,7 @@ class _AvisPourDocteurWidgetState extends State<AvisPourDocteurWidget>
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context).warning,
+                                    letterSpacing: 0.0,
                                   ),
                           borderSide: BorderSide(
                             color: Colors.transparent,

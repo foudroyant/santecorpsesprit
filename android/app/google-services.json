@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:128983869231:android:a9b479095908b5969ba3da",
+        "mobilesdk_app_id": "1:128983869231:android:3b57a68b4c99b5ed9ba3da",
         "android_client_info": {
-          "package_name": "com.bambyno.santecorps"
+          "package_name": "com.bambyno.horizonsante"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "128983869231-gnn09hdf6n2vs4fdqpm5eko11bn2osod.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.bambyno.santecorps",
-            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
-          }
-        },
         {
           "client_id": "128983869231-ev4sj76udmv9a9o93ev639t0cohbv961.apps.googleusercontent.com",
           "client_type": 3

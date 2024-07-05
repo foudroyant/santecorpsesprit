@@ -1,8 +1,8 @@
-import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +13,10 @@ import 'livres_auteur_model.dart';
 export 'livres_auteur_model.dart';
 
 class LivresAuteurWidget extends StatefulWidget {
-  const LivresAuteurWidget({Key? key}) : super(key: key);
+  const LivresAuteurWidget({super.key});
 
   @override
-  _LivresAuteurWidgetState createState() => _LivresAuteurWidgetState();
+  State<LivresAuteurWidget> createState() => _LivresAuteurWidgetState();
 }
 
 class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
@@ -41,8 +41,12 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -69,7 +73,10 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
                 '1cit6rmz' /* Edition spéciale riche en déco... */,
               ),
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).titleSmall,
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0.0,
+                  ),
             ),
             centerTitle: true,
             expandedTitleScale: 1.0,
@@ -80,34 +87,17 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-            child: StreamBuilder<List<LivresAuteurRecord>>(
-              stream: queryLivresAuteurRecord(),
-              builder: (context, snapshot) {
-                // Customize what your widget looks like when it's loading.
-                if (!snapshot.hasData) {
-                  return Center(
-                    child: SizedBox(
-                      width: 50.0,
-                      height: 50.0,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          Color(0xFF120D40),
-                        ),
-                      ),
-                    ),
-                  );
-                }
-                List<LivresAuteurRecord> listViewLivresAuteurRecordList =
-                    snapshot.data!;
+            child: Builder(
+              builder: (context) {
+                final livresAuteur = FFAppState().livresAuteur.toList();
                 return ListView.builder(
                   padding: EdgeInsets.zero,
                   primary: false,
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  itemCount: listViewLivresAuteurRecordList.length,
-                  itemBuilder: (context, listViewIndex) {
-                    final listViewLivresAuteurRecord =
-                        listViewLivresAuteurRecordList[listViewIndex];
+                  itemCount: livresAuteur.length,
+                  itemBuilder: (context, livresAuteurIndex) {
+                    final livresAuteurItem = livresAuteur[livresAuteurIndex];
                     return Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
@@ -121,13 +111,10 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
                             'detailsLivre',
                             queryParameters: {
                               'livre': serializeParam(
-                                listViewLivresAuteurRecord,
-                                ParamType.Document,
+                                livresAuteurItem,
+                                ParamType.DataStruct,
                               ),
                             }.withoutNulls,
-                            extra: <String, dynamic>{
-                              'livre': listViewLivresAuteurRecord,
-                            },
                           );
                         },
                         child: Container(
@@ -139,14 +126,16 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
                               BoxShadow(
                                 blurRadius: 3.0,
                                 color: Color(0x411D2429),
-                                offset: Offset(0.0, 1.0),
+                                offset: Offset(
+                                  0.0,
+                                  1.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -160,8 +149,7 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
                                           Duration(milliseconds: 500),
                                       fadeOutDuration:
                                           Duration(milliseconds: 500),
-                                      imageUrl:
-                                          listViewLivresAuteurRecord.image,
+                                      imageUrl: livresAuteurItem.image,
                                       width: 80.0,
                                       height: 80.0,
                                       fit: BoxFit.contain,
@@ -179,54 +167,22 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        FutureBuilder<ApiCallResponse>(
-                                          future: MesToolsCall.call(
-                                            text: listViewLivresAuteurRecord
-                                                .titre,
-                                            from: 'fr',
-                                            to: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      Color(0xFF120D40),
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            final textMesToolsResponse =
-                                                snapshot.data!;
-                                            return Text(
-                                              MesToolsCall.translated(
-                                                textMesToolsResponse.jsonBody,
-                                              ).toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineSmall
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        fontSize: 22.0,
-                                                      ),
-                                            );
-                                          },
+                                        Text(
+                                          livresAuteurItem.titre,
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 8.0, 0.0),
                                           child: AutoSizeText(
-                                            listViewLivresAuteurRecord.format
+                                            livresAuteurItem.format
                                                 .maybeHandleOverflow(
                                               maxChars: 70,
                                               replacement: '…',
@@ -236,7 +192,11 @@ class _LivresAuteurWidgetState extends State<LivresAuteurWidget> {
                                                 .labelMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),

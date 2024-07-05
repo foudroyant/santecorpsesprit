@@ -9,10 +9,10 @@ import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+  const HomePageWidget({super.key});
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  State<HomePageWidget> createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
@@ -38,7 +38,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0x7F3F3D76),
@@ -70,6 +72,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Roboto',
+                      letterSpacing: 0.0,
                     ),
               ),
               Text(
@@ -79,6 +82,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 style: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Readex Pro',
                       fontSize: 9.0,
+                      letterSpacing: 0.0,
                     ),
               ),
             ],
@@ -89,252 +93,259 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Stack(
-            children: [
-              Align(
-                alignment: AlignmentDirectional(-1.0, -1.0),
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 16.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 210.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.0),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  1.0, 1.0, 1.0, 1.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'jtokw49v' /* Découvrez dans votre Appli cat... */,
-                                ),
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Colors.white,
-                                      fontSize: 30.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'wkh1dyxd' /* Disponible dans */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/app-store.png',
-                                    width: 90.0,
-                                    height: 90.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ].divide(SizedBox(height: 5.0)),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ch1mfgpb' /* Disponible dans */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/playstore_(1).png',
-                                    width: 90.0,
-                                    height: 90.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ].divide(SizedBox(height: 5.0)),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              FlutterFlowLanguageSelector(
-                                width: double.infinity,
-                                backgroundColor: Colors.white,
-                                borderColor: Colors.transparent,
-                                dropdownIconColor: Colors.white,
-                                borderRadius: 8.0,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                    ),
-                                hideFlags: false,
-                                flagSize: 24.0,
-                                flagTextGap: 8.0,
-                                currentLanguage:
-                                    FFLocalizations.of(context).languageCode,
-                                languages: FFLocalizations.languages(),
-                                onChanged: (lang) =>
-                                    setAppLanguage(context, lang),
-                              ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed('avisAuteur');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  '7esizzlv' /* Livres de l'auteur */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).warning,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed('avisPourDocteur');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'ck65gls1' /* Nos coups de coeur */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(-1.0, -1.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 16.0),
+                            child: Container(
+                              width: double.infinity,
+                              height: 210.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5.0),
+                                border: Border.all(
                                   color: Colors.white,
+                                  width: 2.0,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(1.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'jtokw49v' /* Découvrez dans votre Appli cat... */,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color: Colors.white,
+                                        fontSize: 30.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'wkh1dyxd' /* Disponible dans */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/app-store.png',
+                                      width: 90.0,
+                                      height: 90.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ].divide(SizedBox(height: 5.0)),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'ch1mfgpb' /* Disponible dans */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/playstore_(1).png',
+                                      width: 90.0,
+                                      height: 90.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ].divide(SizedBox(height: 5.0)),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                FlutterFlowLanguageSelector(
+                                  width: double.infinity,
+                                  backgroundColor: Colors.white,
+                                  borderColor: Colors.transparent,
+                                  dropdownIconColor: Colors.white,
+                                  borderRadius: 8.0,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
+                                      .labelLarge
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
+                                        letterSpacing: 0.0,
                                       ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Color(0xFF29154A),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  hideFlags: false,
+                                  flagSize: 24.0,
+                                  flagTextGap: 8.0,
+                                  currentLanguage:
+                                      FFLocalizations.of(context).languageCode,
+                                  languages: FFLocalizations.languages(),
+                                  onChanged: (lang) =>
+                                      setAppLanguage(context, lang),
                                 ),
-                              ),
-                            ].divide(SizedBox(height: 10.0)),
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    context.pushNamed('avisAuteur');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    '7esizzlv' /* Livres de l'auteur */,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 40.0,
+                                    padding: EdgeInsets.all(0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).warning,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ),
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    context.pushNamed('avisPourDocteur');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'ck65gls1' /* Nos coups de coeur */,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 40.0,
+                                    padding: EdgeInsets.all(0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Colors.white,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Color(0xFF29154A),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ),
+                              ].divide(SizedBox(height: 10.0)),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      await launchURL('https://www.santecorpsetesprit.com/');
-                    },
-                    text: FFLocalizations.of(context).getText(
-                      '6znxgwal' /* https://www.santecorpsetesprit... */,
-                    ),
-                    options: FFButtonOptions(
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: Color(0xFF29154A),
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).warning,
-                              ),
-                      elevation: 3.0,
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
+                      ],
                     ),
                   ),
                 ),
-              ),
-            ],
+                Align(
+                  alignment: AlignmentDirectional(0.0, 1.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        await launchURL('https://www.santecorpsetesprit.com/');
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        '6znxgwal' /* https://www.santecorpsetesprit... */,
+                      ),
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: Color(0xFF29154A),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context).warning,
+                                  letterSpacing: 0.0,
+                                ),
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

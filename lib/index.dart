@@ -8,3 +8,9 @@ export '/avis_pour_docteur/avis_pour_docteur_widget.dart'
 export '/livres_docteur/livres_docteur_widget.dart' show LivresDocteurWidget;
 export '/details_livre_docteur/details_livre_docteur_widget.dart'
     show DetailsLivreDocteurWidget;
+export '/livres_docteur_old/livres_docteur_old_widget.dart'
+    show LivresDocteurOldWidget;
+export '/livres_auteur_old/livres_auteur_old_widget.dart'
+    show LivresAuteurOldWidget;
+export '/details_livre_old/details_livre_old_widget.dart'
+    show DetailsLivreOldWidget;

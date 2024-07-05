@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,14 +18,14 @@ export 'details_livre_model.dart';
 
 class DetailsLivreWidget extends StatefulWidget {
   const DetailsLivreWidget({
-    Key? key,
+    super.key,
     required this.livre,
-  }) : super(key: key);
+  });
 
-  final LivresAuteurRecord? livre;
+  final LivreAuteurStruct? livre;
 
   @override
-  _DetailsLivreWidgetState createState() => _DetailsLivreWidgetState();
+  State<DetailsLivreWidget> createState() => _DetailsLivreWidgetState();
 }
 
 class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
@@ -32,170 +34,172 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, -250.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-10.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 50.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 50.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 50.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 50.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 50.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DetailsLivreModel());
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -250.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-10.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation7': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -210,7 +214,9 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -236,7 +242,10 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
               FFLocalizations.of(context).getText(
                 'ywrgehbx' /* Description */,
               ),
-              style: FlutterFlowTheme.of(context).titleSmall,
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0.0,
+                  ),
             ),
             centerTitle: true,
             expandedTitleScale: 1.0,
@@ -264,7 +273,10 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                     BoxShadow(
                       blurRadius: 2.0,
                       color: Color(0x17202529),
-                      offset: Offset(0.0, 1.0),
+                      offset: Offset(
+                        0.0,
+                        1.0,
+                      ),
                     )
                   ],
                   borderRadius: BorderRadius.only(
@@ -278,42 +290,15 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                   animationsMap['containerOnPageLoadAnimation']!),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 0.0, 0.0),
-                child: FutureBuilder<ApiCallResponse>(
-                  future: MesToolsCall.call(
-                    text: widget.livre?.titre,
-                    from: 'fr',
-                    to: FFLocalizations.of(context).languageCode,
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              Color(0xFF120D40),
-                            ),
-                          ),
-                        ),
-                      );
-                    }
-                    final textMesToolsResponse = snapshot.data!;
-                    return Text(
-                      MesToolsCall.translated(
-                        textMesToolsResponse.jsonBody,
-                      ).toString(),
-                      style:
-                          FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Outfit',
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.w600,
-                              ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation1']!);
-                  },
-                ),
+                child: Text(
+                  widget.livre!.titre,
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Outfit',
+                        fontSize: 20.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
@@ -322,6 +307,7 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).primary,
+                        letterSpacing: 0.0,
                       ),
                 ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
               ),
@@ -333,6 +319,7 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                         widget.livre?.descriptions?.toList() ?? [];
                     return Column(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(descriptions.length,
                           (descriptionsIndex) {
                         final descriptionsItem =
@@ -363,10 +350,13 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                               }
                               final textMesToolsResponse = snapshot.data!;
                               return Text(
-                                MesToolsCall.translated(
-                                  textMesToolsResponse.jsonBody,
-                                ).toString(),
-                                style: FlutterFlowTheme.of(context).labelMedium,
+                                descriptionsItem,
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                               ).animateOnPageLoad(
                                   animationsMap['textOnPageLoadAnimation3']!);
                             },
@@ -423,11 +413,13 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                                     }
                                     final textMesToolsResponse = snapshot.data!;
                                     return Text(
-                                      MesToolsCall.translated(
-                                        textMesToolsResponse.jsonBody,
-                                      ).toString(),
+                                      exemplesItem,
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            letterSpacing: 0.0,
+                                          ),
                                     );
                                   },
                                 ),
@@ -465,6 +457,7 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                               children: [
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -497,13 +490,12 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                                           final textMesToolsResponse =
                                               snapshot.data!;
                                           return Text(
-                                            MesToolsCall.translated(
-                                              textMesToolsResponse.jsonBody,
-                                            ).toString(),
+                                            avisItem.commentaire,
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
                                                   fontStyle: FontStyle.italic,
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
@@ -525,6 +517,7 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                                                 .labelMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
@@ -550,6 +543,7 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                     final piedDePage = widget.livre?.piedDePage?.toList() ?? [];
                     return Column(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children:
                           List.generate(piedDePage.length, (piedDePageIndex) {
                         final piedDePageItem = piedDePage[piedDePageIndex];
@@ -576,10 +570,13 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                             }
                             final textMesToolsResponse = snapshot.data!;
                             return Text(
-                              MesToolsCall.translated(
-                                textMesToolsResponse.jsonBody,
-                              ).toString(),
-                              style: FlutterFlowTheme.of(context).labelMedium,
+                              piedDePageItem,
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation6']!);
                           },
@@ -614,14 +611,12 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                     }
                     final textMesToolsResponse = snapshot.data!;
                     return Text(
-                      valueOrDefault<String>(
-                        MesToolsCall.translated(
-                          textMesToolsResponse.jsonBody,
-                        ).toString(),
-                        'Disponible sur :',
+                      FFLocalizations.of(context).getText(
+                        'jkwwh1gr' /* Disponible sur : */,
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                           ),
                     ).animateOnPageLoad(
@@ -630,207 +625,44 @@ class _DetailsLivreWidgetState extends State<DetailsLivreWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await launchURL(widget.livre!.liens[0]);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '8wf81krl' /* www.amazon.fr */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF232F3E),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                padding: EdgeInsets.all(16.0),
+                child: Builder(
+                  builder: (context) {
+                    final lesLiens = widget.livre?.liens?.toList() ?? [];
+                    return Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: List.generate(lesLiens.length, (lesLiensIndex) {
+                        final lesLiensItem = lesLiens[lesLiensIndex];
+                        return FFButtonWidget(
+                          onPressed: () async {
+                            await launchURL(lesLiensItem);
+                          },
+                          text: functions.extraireSite(lesLiensItem),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 40.0,
+                            padding: EdgeInsets.all(0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Color(0xFF232F3E),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Color(0xFF29154A),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await launchURL(widget.livre!.liens[1]);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '8n0lcd0a' /*  www.chapitre.com  */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF253F64),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await launchURL(widget.livre!.liens[2]);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '242wzucc' /*  www.leslibrairies.fr */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF006D9B),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Color(0xFF29154A),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await launchURL(widget.livre!.liens[3]);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '3wjg4wm3' /*  www.placedeslibraires.fr */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF268E6C),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await launchURL(widget.livre!.liens[4]);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '5c4t8fci' /* www.librairiesdelest.fr */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFFD81A36),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Color(0xFF29154A),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await launchURL(widget.livre!.liens[5]);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '8290920t' /* www.parislibrairies.fr  */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFFC4C4C4),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await launchURL(widget.livre!.liens[6]);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '4160fa3p' /* www. librairiesindependantes.c... */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF21BBEF),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                  ].divide(SizedBox(height: 5.0)),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Color(0xFF29154A),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        );
+                      }).divide(SizedBox(height: 5.0)),
+                    );
+                  },
                 ),
               ),
             ],

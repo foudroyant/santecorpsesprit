@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -20,12 +21,14 @@ class AvisStruct extends FFFirebaseStruct {
   String? _commentaire;
   String get commentaire => _commentaire ?? '';
   set commentaire(String? val) => _commentaire = val;
+
   bool hasCommentaire() => _commentaire != null;
 
   // "lecteur" field.
   String? _lecteur;
   String get lecteur => _lecteur ?? '';
   set lecteur(String? val) => _lecteur = val;
+
   bool hasLecteur() => _lecteur != null;
 
   static AvisStruct fromMap(Map<String, dynamic> data) => AvisStruct(
@@ -34,7 +37,7 @@ class AvisStruct extends FFFirebaseStruct {
       );
 
   static AvisStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? AvisStruct.fromMap(data) : null;
+      data is Map ? AvisStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'commentaire': _commentaire,

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,14 +17,14 @@ export 'details_livre_docteur_model.dart';
 
 class DetailsLivreDocteurWidget extends StatefulWidget {
   const DetailsLivreDocteurWidget({
-    Key? key,
+    super.key,
     required this.livre,
-  }) : super(key: key);
+  });
 
   final LivresDocteurRecord? livre;
 
   @override
-  _DetailsLivreDocteurWidgetState createState() =>
+  State<DetailsLivreDocteurWidget> createState() =>
       _DetailsLivreDocteurWidgetState();
 }
 
@@ -33,90 +34,92 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, -250.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-10.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 50.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DetailsLivreDocteurModel());
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -250.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-10.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-20.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -131,7 +134,9 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -157,7 +162,10 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
               FFLocalizations.of(context).getText(
                 'hkkds1nv' /* Description */,
               ),
-              style: FlutterFlowTheme.of(context).titleSmall,
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0.0,
+                  ),
             ),
             centerTitle: true,
             expandedTitleScale: 1.0,
@@ -185,7 +193,10 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                     BoxShadow(
                       blurRadius: 2.0,
                       color: Color(0x17202529),
-                      offset: Offset(0.0, 1.0),
+                      offset: Offset(
+                        0.0,
+                        1.0,
+                      ),
                     )
                   ],
                   borderRadius: BorderRadius.only(
@@ -229,6 +240,7 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Outfit',
                                 fontSize: 20.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
                     ).animateOnPageLoad(
@@ -267,6 +279,7 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).primary,
+                            letterSpacing: 0.0,
                           ),
                     ).animateOnPageLoad(
                         animationsMap['textOnPageLoadAnimation2']!);
@@ -311,7 +324,12 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                                 MesToolsCall.translated(
                                   textMesToolsResponse.jsonBody,
                                 ).toString(),
-                                style: FlutterFlowTheme.of(context).labelMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                               ).animateOnPageLoad(
                                   animationsMap['textOnPageLoadAnimation3']!);
                             },
@@ -323,7 +341,7 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Builder(
                   builder: (context) {
                     final liens = widget.livre?.liens?.toList() ?? [];
@@ -341,8 +359,7 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsets.all(0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).warning,
@@ -351,6 +368,7 @@ class _DetailsLivreDocteurWidgetState extends State<DetailsLivreDocteurWidget>
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   color: FlutterFlowTheme.of(context).primary,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(

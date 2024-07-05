@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,10 +13,10 @@ import 'livres_docteur_model.dart';
 export 'livres_docteur_model.dart';
 
 class LivresDocteurWidget extends StatefulWidget {
-  const LivresDocteurWidget({Key? key}) : super(key: key);
+  const LivresDocteurWidget({super.key});
 
   @override
-  _LivresDocteurWidgetState createState() => _LivresDocteurWidgetState();
+  State<LivresDocteurWidget> createState() => _LivresDocteurWidgetState();
 }
 
 class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
@@ -41,7 +42,9 @@ class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -68,7 +71,10 @@ class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
                 '6mbk91dj' /* Livres du docteur */,
               ),
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).titleSmall,
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0.0,
+                  ),
             ),
             centerTitle: true,
             expandedTitleScale: 1.0,
@@ -138,14 +144,16 @@ class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
                               BoxShadow(
                                 blurRadius: 3.0,
                                 color: Color(0x411D2429),
-                                offset: Offset(0.0, 1.0),
+                                offset: Offset(
+                                  0.0,
+                                  1.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -211,6 +219,7 @@ class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         fontSize: 22.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             );
                                           },
@@ -264,6 +273,7 @@ class _LivresDocteurWidgetState extends State<LivresDocteurWidget> {
                                                           fontFamily:
                                                               'Readex Pro',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               );
                                             },

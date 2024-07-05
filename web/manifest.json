@@ -1,6 +1,6 @@
 {
-    "name": "SanteCorps",
-    "short_name": "SanteCorps",
+    "name": "SanteCorpsEsprit",
+    "short_name": "SanteCorpsEsprit",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

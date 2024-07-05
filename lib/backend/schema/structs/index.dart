@@ -1,3 +1,4 @@
 export '/backend/schema/util/schema_util.dart';
 
 export 'avis_struct.dart';
+export 'livre_auteur_struct.dart';

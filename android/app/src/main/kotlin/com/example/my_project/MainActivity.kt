@@ -1,4 +1,4 @@
-package com.bambyno.santecorps
+package com.bambyno.horizonsante
 
 import io.flutter.embedding.android.FlutterActivity
 
