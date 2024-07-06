@@ -468,6 +468,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
+    '1eni4wpe': {
+      'fr': 'Veuillez accpter les notifications',
+      'de': '',
+      'en': '',
+      'es': '',
+      'pt': '',
+    },
     'cjk38p7b': {
       'fr': '',
       'de': '',

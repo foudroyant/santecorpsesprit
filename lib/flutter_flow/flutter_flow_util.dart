@@ -30,6 +30,7 @@ export 'package:cloud_firestore/cloud_firestore.dart'
 export 'package:page_transition/page_transition.dart';
 export 'internationalization.dart' show FFLocalizations;
 export 'nav/nav.dart';
+export 'firebase_remote_config_util.dart';
 
 T valueOrDefault<T>(T? value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;

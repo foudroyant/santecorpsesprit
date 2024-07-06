@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:128983869231:android:3b57a68b4c99b5ed9ba3da",
+        "mobilesdk_app_id": "1:128983869231:android:c965cf4081ca313d9ba3da",
         "android_client_info": {
-          "package_name": "com.bambyno.horizonsante"
+          "package_name": "com.santecorpsesprit.app"
         }
       },
       "oauth_client": [

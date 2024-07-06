@@ -24,6 +24,8 @@ void main() async {
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
+  await initializeFirebaseRemoteConfig();
+
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
     child: MyApp(),

@@ -1,4 +1,4 @@
-package com.bambyno.horizonsante
+package com.santecorpsesprit.app
 
 import io.flutter.embedding.android.FlutterActivity
 

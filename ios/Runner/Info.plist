@@ -62,7 +62,8 @@
 	<true/>
 
 
-
+	<key>PermissionGroupNotification</key>
+    <string>Veuillez accpter les notifications</string>
 
 
 	<key>UILaunchStoryboardName</key>
